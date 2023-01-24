@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "http://www.simplemachines.org/xml/package-info">
+<package-info xmlns="http://www.simplemachines.org/xml/package-info" xmlns:smf="http://www.simplemachines.org/">
+	<name>Wikipedia BBC</name>
+	<id>Masterd:WikipediaBBC</id>
+	<version>1.0.1</version>
+	<type>modification</type>
+	<install for="2.0 - 2.0.99">
+	    <readme parsebbc="true">readme.txt</readme>
+		<require-file name="Subs-WikiBBC.php" destination="$sourcedir" />
+		<require-file name="WikiBBC.english.php" destination="$languagedir" />
+		<require-file name="WikiBBC.croatian-utf8.php" destination="$languagedir" />
+		<require-file name="wiki.gif" destination="$imagesdir/bbc" />
+		<code>install.php</code>
+	</install>
+	<uninstall for="2.0 - 2.0.99">
+		<remove-file name="$sourcedir/Subs-SmallCaps.php" />
+		<remove-file name="$languagedir/WikiBBC.english.php" />
+		<remove-file name="$languagedir/WikiBBC.croatian-utf8.php" />
+		<remove-file name="$imagesdir/bbc/smallcaps.gif" />
+		<code>uninstall.php</code>
+	</uninstall>
+</package-info>
