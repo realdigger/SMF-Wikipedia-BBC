@@ -13,9 +13,7 @@ function wiki_bbc_add_code(&$codes)
 				'tag' => 'wiki',
 				'type' => 'unparsed_content',
 				'content' => '<a href="http://'.$txt['lang'].'.wikipedia.org/wiki/$1" target="_blank" style="border-bottom:1px dashed #FF0000;text-decoration:none" class="wiki_link">$1</a><sup><span style="font-size:7pt;color:red;" class="wiki_sup">'.$txt['wiki'].'</span></sup>',
-				'validate' => create_function('&$tag, &$data, $disabled', '
-						$data = strtr($data, array(\'<br />\' => \'\'));
-				'),
+				'validate' => wiki_bbc_validate($data),
                 'disallow_children' => array('email', 'ftp', 'url', 'iurl'),
 				'disabled_content' => '($1)',
 	);
@@ -28,6 +26,11 @@ function wiki_bbc_add_code(&$codes)
 				'disabled_before' => '',
                 'disabled_after' => '($1)',
 	);
+}
+
+function wiki_bbc_validate(&$data)
+{
+	$data = strtr($data, ['<br />' => '']);
 }
 
 function wiki_bbc_add_button(&$buttons)
